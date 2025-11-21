@@ -1,91 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>All About Paw | Gallery</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="img/page1-run1.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS7PObdqH3g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <header class="navbar container">
-      <div class="logo">
-        <div class="logo-mark"></div>
-      </div>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="gallery.html" class="active">Gallery</a>
-        <a href="contact.html">Contact Us</a>
-      </nav>
-      <div class="nav-icons">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <i class="fa-regular fa-circle-user"></i>
-      </div>
-    </header>
 
-    <main class="container">
-      <h1 class="section-title">Gallery</h1>
+<head>
+  <meta charset="UTF-8" />
+  <title>All About Paw | Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="img/page1-run1.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-      <section class="gallery-grid" id="galleryGrid">
-        <div class="gallery-item large" style="background-image: url('img/page4-run1.png');"></div>
-        <div class="gallery-item medium" style="background-image: url('img/page4-run2.png');"></div>
-        <div class="gallery-item tall" style="background-image: url('img/page4-run3.png');"></div>
-        <div class="gallery-item medium" style="background-image: url('img/page4-run4.png');"></div>
-        <div class="gallery-item wide" style="background-image: url('img/page4-run5.png');"></div>
-        <div class="gallery-item medium" style="background-image: url('img/page4-run6.png');"></div>
-        <a href="#" class="view-more-button" id="viewMoreBtn">View more</a>
-      </section>
+<body>
+  <header class="navbar container">
+    <div class="logo">
+      <div class="logo-mark"></div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="nav-icons">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <i class="fa-regular fa-circle-user"></i>
+    </div>
+  </header>
 
-      <footer class="footer">
-        © 2025 All About Paw. All rights reserved.
-      </footer>
-    </main>
+  <main class="container">
+    <h1 class="section-title">Gallery</h1>
 
-    <script>
-      const galleryGrid = document.getElementById('galleryGrid');
-      const viewMoreBtn = document.getElementById('viewMoreBtn');
-      let currentPage = 1;
+    <section class="gallery-grid" id="galleryGrid">
+      <div class="gallery-item large" style="background-image: url('img/page4-run1.png');"></div>
+      <div class="gallery-item medium" style="background-image: url('img/page4-run2.png');"></div>
+      <div class="gallery-item tall" style="background-image: url('img/page4-run3.png');"></div>
+      <div class="gallery-item medium" style="background-image: url('img/page4-run4.png');"></div>
+      <div class="gallery-item wide" style="background-image: url('img/page4-run5.png');"></div>
+      <div class="gallery-item medium" style="background-image: url('img/page4-run6.png');"></div>
+      <a href="#" class="view-more-button" id="viewMoreBtn">View more</a>
+    </section>
 
-      const sizes = ['medium', 'large', 'tall', 'wide', 'medium', 'medium'];
-      let sizeIndex = 0;
+    <footer class="footer">
+      © 2025 All About Paw. All rights reserved.
+    </footer>
+  </main>
 
-      viewMoreBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        
-        // Remove the view more button temporarily
-        viewMoreBtn.remove();
+  <script>
+    const galleryGrid = document.getElementById('galleryGrid');
+    const viewMoreBtn = document.getElementById('viewMoreBtn');
+    let currentPage = 1;
 
-        // Load 6 random dog images from Dog CEO API
-        for (let i = 0; i < 6; i++) {
-          try {
-            const response = await fetch('https://dog.ceo/api/breeds/image/random');
-            const data = await response.json();
-            
-            const newItem = document.createElement('div');
-            const size = sizes[sizeIndex % sizes.length];
-            newItem.className = `gallery-item ${size}`;
-            newItem.style.backgroundImage = `url('${data.message}')`;
-            galleryGrid.appendChild(newItem);
-            
-            sizeIndex++;
-          } catch (error) {
-            console.error('Error loading image:', error);
-          }
+    const sizes = ['medium', 'large', 'tall', 'wide', 'medium', 'medium'];
+    let sizeIndex = 0;
+
+    viewMoreBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      // Remove the view more button temporarily
+      viewMoreBtn.remove();
+
+      // Load 6 random dog images from Dog CEO API
+      for (let i = 0; i < 6; i++) {
+        try {
+          const response = await fetch('https://dog.ceo/api/breeds/image/random');
+          const data = await response.json();
+
+          const newItem = document.createElement('div');
+          const size = sizes[sizeIndex % sizes.length];
+          newItem.className = `gallery-item ${size}`;
+          newItem.style.backgroundImage = `url('${data.message}')`;
+          galleryGrid.appendChild(newItem);
+
+          sizeIndex++;
+        } catch (error) {
+          console.error('Error loading image:', error);
         }
+      }
 
-        // Add the view more button back
-        galleryGrid.appendChild(viewMoreBtn);
-        currentPage++;
-      });
-    </script>
-  </body>
+      // Add the view more button back
+      galleryGrid.appendChild(viewMoreBtn);
+      currentPage++;
+    });
+  </script>
+</body>
+
 </html>
-
