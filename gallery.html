@@ -17,12 +17,11 @@
     <header class="navbar container">
       <div class="logo">
         <div class="logo-mark"></div>
-        <span>All About Paw</span>
       </div>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="gallery.html" class="active">Page</a>
+        <a href="gallery.html" class="active">Gallery</a>
         <a href="contact.html">Contact Us</a>
       </nav>
       <div class="nav-icons">
@@ -34,22 +33,58 @@
     <main class="container">
       <h1 class="section-title">Gallery</h1>
 
-      <section class="gallery-grid">
-        <div class="gallery-item g1"></div>
-        <div class="gallery-item g2"></div>
-        <div class="gallery-item g3"></div>
-        <div class="gallery-item g4"></div>
-        <div class="gallery-item g5"></div>
-        <div class="gallery-item g6"></div>
+      <section class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item large" style="background-image: url('img/page4-run1.png');"></div>
+        <div class="gallery-item medium" style="background-image: url('img/page4-run2.png');"></div>
+        <div class="gallery-item tall" style="background-image: url('img/page4-run3.png');"></div>
+        <div class="gallery-item medium" style="background-image: url('img/page4-run4.png');"></div>
+        <div class="gallery-item wide" style="background-image: url('img/page4-run5.png');"></div>
+        <div class="gallery-item medium" style="background-image: url('img/page4-run6.png');"></div>
+        <a href="#" class="view-more-button" id="viewMoreBtn">View more</a>
       </section>
-
-      <div class="gallery-more">
-        <a href="#">View more</a>
-      </div>
 
       <footer class="footer">
         © 2025 All About Paw. All rights reserved.
       </footer>
     </main>
+
+    <script>
+      const galleryGrid = document.getElementById('galleryGrid');
+      const viewMoreBtn = document.getElementById('viewMoreBtn');
+      let currentPage = 1;
+
+      const sizes = ['medium', 'large', 'tall', 'wide', 'medium', 'medium'];
+      let sizeIndex = 0;
+
+      viewMoreBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        
+        // Remove the view more button temporarily
+        viewMoreBtn.remove();
+
+        // Load 6 random dog images from Dog CEO API
+        for (let i = 0; i < 6; i++) {
+          try {
+            const response = await fetch('https://dog.ceo/api/breeds/image/random');
+            const data = await response.json();
+            
+            const newItem = document.createElement('div');
+            const size = sizes[sizeIndex % sizes.length];
+            newItem.className = `gallery-item ${size}`;
+            newItem.style.backgroundImage = `url('${data.message}')`;
+            galleryGrid.appendChild(newItem);
+            
+            sizeIndex++;
+          } catch (error) {
+            console.error('Error loading image:', error);
+          }
+        }
+
+        // Add the view more button back
+        galleryGrid.appendChild(viewMoreBtn);
+        currentPage++;
+      });
+    </script>
   </body>
 </html>
+

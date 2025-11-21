@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>All About Paw | Booking Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS7PObdqH3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="navbar container">
+        <div class="logo">
+            <div class="logo-mark"></div>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-circle-user"></i>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="booking-section">
+            <h1 class="booking-title">Booking Form</h1>
+
+            <div class="booking-form-wrapper">
+
+                <form class="booking-form" onsubmit="event.preventDefault(); window.location.href='index.html';">
+                    <div class="booking-logo">
+                        <img src="img/page1-run1.png" alt="All About Paw" />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" />
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-section">
+                            <label class="section-label">Pet Name</label>
+                            <input type="text" id="petName" name="petName" />
+                            <select id="species" name="species">
+                                <option value="" disabled selected>Species</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="rabbit">Rabbit</option>
+                                <option value="bird">Bird</option>
+                                <option value="hamster">Hamster</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <select id="dateTime" name="dateTime">
+                                <option value="" disabled selected>Date & Time</option>
+                                <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+                                <option value="afternoon">Afternoon (1:00 PM - 5:00 PM)</option>
+                                <option value="evening">Evening (6:00 PM - 9:00 PM)</option>
+                            </select>
+                            <input type="text" id="healthConditions" name="healthConditions"
+                                placeholder="Health Conditions/ETC." />
+                        </div>
+                        <div class="form-section">
+                            <label class="section-label">Age / Weight</label>
+                            <input type="text" id="ageWeight" name="ageWeight" />
+                            <input type="text" id="numPets" name="numPets" placeholder="Number of Pets" />
+                            <input type="text" id="location" name="location" placeholder="Location" />
+                            <div class="btn-container">
+                                <button type="submit" class="btn-send">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <footer class="footer">
+            © 2025 All About Paw. All rights reserved.
+        </footer>
+    </main>
+</body>
+
+</html>
