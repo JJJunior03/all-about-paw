@@ -40,6 +40,10 @@ body {
   height: 32px;
   border-radius: 50%;
   background: #c46b3d;
+  background-image: url("img/logo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .nav-links {
@@ -144,8 +148,7 @@ body {
   width: 100%;
   max-width: 320px;
   height: 360px;
-  background: url("https://placehold.co/600x800?text=Pet+Photo") center/cover
-    no-repeat;
+  background: url("img/index.png") center/cover no-repeat;
   border-radius: 12px;
 }
 
